@@ -18,7 +18,7 @@ class Stock(Base):
         self.id_product = id_product
         self.id_seller = id_seller
     
-'''    @validates('sku')
+    @validates('sku')
     def validate_sku(self, key, sku):
         if not isinstance(sku, str):
             raise TypeError('SKU must be a string')
@@ -26,24 +26,28 @@ class Stock(Base):
             raise ValueError('SKU must not be empty')
         if len(sku) > 50:
             raise ValueError("SKU can't be more than 50 characters")
+        return sku
 
     @validates('quantity')
     def validate_quantity(self, key, quantity):
-        if not isinstance(quantity, int):
+        if not isinstance(int(quantity), int):
             raise TypeError('Quantity must be a valid number')
         if quantity < 0:
             raise ValueError("Quantity can't be smaller than 0 (zero)")
+        return quantity
 
     @validates('id_product')
     def validate_id_product(self, key, id_product):
-        if not isinstance(id_product, int):
+        if not isinstance(int(id_product), int):
             raise TypeError('id_product must be a valid number')
         if id_product < 0:
             raise ValueError("id_product can't be smaller than 0 (zero)")
+        return id_product
 
     @validates('id_seller')
     def validate_id_seller(self, key, id_seller):
-        if not isinstance(id_seller, int):
+        if not isinstance(int(id_seller), int):
             raise TypeError('id_seller must be a valid number')
         if id_seller < 0:
-            raise ValueError("id_seller can't be smaller than 0 (zero)")'''
+            raise ValueError("id_seller can't be smaller than 0 (zero)")
+        return id_seller
