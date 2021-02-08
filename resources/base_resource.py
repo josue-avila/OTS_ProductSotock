@@ -23,7 +23,6 @@ class BaseResource(Resource):
     def post(self):
         data = request.json
         model = self.__model_type(**data)
-        print(model.sku, model.quantity, model.id_product, model.id_seller)
         self.__dao.save(model)
 
         return model, 200
