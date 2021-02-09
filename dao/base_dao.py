@@ -25,7 +25,7 @@ class BaseDao:
 
     def read_by_seller(self, id_seller: int) -> Stock:
         with Session() as s:
-            result = s.query(self.__type_model).filter_by(id_seller=id_seller).first()
+            result = s.query(self.__type_model).filter_by(id_seller=id_seller).all()
         return result
             
     def delete(self, model: Stock) -> None:
