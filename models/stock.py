@@ -30,7 +30,7 @@ class Stock(Base):
 
     @validates('quantity')
     def validate_quantity(self, key, quantity):
-        if not isinstance(int(quantity), int):
+        if not isinstance(quantity, int):
             raise TypeError('Quantity must be a valid number')
         if quantity < 0:
             raise ValueError("Quantity can't be smaller than 0 (zero)")
@@ -38,7 +38,7 @@ class Stock(Base):
 
     @validates('id_product')
     def validate_id_product(self, key, id_product):
-        if not isinstance(int(id_product), int):
+        if not isinstance(id_product, int):
             raise TypeError('id_product must be a valid number')
         if id_product < 0:
             raise ValueError("id_product can't be smaller than 0 (zero)")
@@ -46,7 +46,7 @@ class Stock(Base):
 
     @validates('id_seller')
     def validate_id_seller(self, key, id_seller):
-        if not isinstance(int(id_seller), int):
+        if not isinstance(id_seller, int):
             raise TypeError('id_seller must be a valid number')
         if id_seller < 0:
             raise ValueError("id_seller can't be smaller than 0 (zero)")
